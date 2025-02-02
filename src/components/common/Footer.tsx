@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 
 const Footer = () => {
   const routes = [
@@ -21,17 +21,13 @@ const Footer = () => {
   const contactInfo = [
     {
       icon: <Mail className="w-5 h-5" />,
-      text: "hello@codemaven.com",
-      href: "mailto:hello@codemaven.com",
+      text: "uneebbhatti3@gmail.com",
+      href: "mailto:uneebbhatti3@gmail.com",
     },
     {
       icon: <Phone className="w-5 h-5" />,
-      text: "+1 (555) 123-4567",
-      href: "tel:+15551234567",
-    },
-    {
-      icon: <MapPin className="w-5 h-5" />,
-      text: "123 Tech Street, Silicon Valley, CA",
+      text: "+923364769000",
+      href: "tel:+923364769000",
     },
   ];
 

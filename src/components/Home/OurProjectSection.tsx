@@ -12,7 +12,10 @@ const OurProjectSection = () => {
   ];
   return (
     <>
-      <section className="text-black-500 p-[20px] bg-white rounded-[20px] mt-[12px]">
+      <section
+        className="text-black-500 p-[20px] bg-white rounded-[20px] mt-[12px]"
+        id="our-project"
+      >
         <div className="mb-4 bg-lightGray-500 rounded-[8px] p-[20px]">
           <span className="text-sm font-medium uppercase">OUR PROJECT</span>
         </div>

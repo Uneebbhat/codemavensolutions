@@ -27,32 +27,38 @@ const Header = () => {
   return (
     <header className="sticky top-[12px] w-full flex items-center justify-between bg-black-500 text-white rounded-[20px] p-[20px] z-20">
       <div className="logo">
-        <Link href="/">
+        <a href="#home">
           <Image
             src="/assets/logo.svg"
             alt="Codemaven Solutions"
             width={100}
             height={100}
           />
-        </Link>
+        </a>
       </div>
 
       <div className="hidden md:flex items-center space-x-2.5">
         <nav className="flex items-center space-x-2.5">
           {routes.map((route, index) => (
             <React.Fragment key={index}>
-              <Link href={route.href} className="hover:text-blue-500">
+              <a href={route.href} className="hover:text-blue-500">
                 {route.label}
-              </Link>
+              </a>
               {index < routes.length && (
                 <span className="mx-2.5 text-[30px]">/</span>
               )}
             </React.Fragment>
           ))}
         </nav>
-        <Button className="transition-all bg-white text-black-500 hover:bg-blue-500 hover:text-white">
-          Let&apos;s talk.
-        </Button>
+        <Link
+          href="https://cal.com/codemavensolutions/30min"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button className="transition-all bg-white text-black-500 hover:bg-blue-500 hover:text-white">
+            Let&apos;s talk.
+          </Button>
+        </Link>
       </div>
 
       {/* Mobile Menu */}
@@ -78,17 +84,25 @@ const Header = () => {
         >
           <nav className="flex flex-col items-start p-5 space-y-5">
             {routes.map((route) => (
-              <Link
+              <a
                 key={route.href}
                 href={route.href}
                 className="text-black-500 hover:text-blue-500 transition-all"
               >
                 {route.label}
-              </Link>
+              </a>
             ))}
-            <Button className="w-full bg-black-500 text-white  hover:bg-blue-500">
-              Let&apos;s talk.
-            </Button>
+
+            <Link
+              href="https://cal.com/codemavensolutions/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full"
+            >
+              <Button className="w-full bg-black-500 text-white hover:bg-blue-500">
+                Let&apos;s talk.
+              </Button>
+            </Link>
           </nav>
         </div>
       </div>
