@@ -51,7 +51,7 @@ const Header = () => {
           ))}
         </nav>
         <Button className="transition-all bg-white text-black-500 hover:bg-blue-500 hover:text-white">
-          Let's talk.
+          Let&apos;s talk.
         </Button>
       </div>
 
@@ -87,7 +87,7 @@ const Header = () => {
               </Link>
             ))}
             <Button className="w-full bg-black-500 text-white  hover:bg-blue-500">
-              Let's talk.
+              Let&apos;s talk.
             </Button>
           </nav>
         </div>

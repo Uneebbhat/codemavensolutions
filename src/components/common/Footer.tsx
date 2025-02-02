@@ -43,7 +43,7 @@ const Footer = () => {
             {/* Company Info */}
             <div className="lg:col-span-2">
               <h1 className="text-h3 md:text-h2 lg:text-h1 font-medium leading-tight">
-                Let's Build Something Amazing
+                Let&apos;s Build Something Amazing
               </h1>
               <div className="mt-[30px] flex flex-wrap gap-x-[40px]">
                 <nav className="flex flex-col gap-[20px]">

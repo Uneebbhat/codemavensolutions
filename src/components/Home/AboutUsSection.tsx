@@ -43,7 +43,7 @@ const AboutUsSection = () => {
               </h2>
               <p className="text-gray-600 leading-relaxed text-sm md:text-base">
                 At Codemaven Solutions, we believe technology is more than just
-                code—it's about creating intuitive experiences that leave a
+                code—it&apos;s about creating intuitive experiences that leave a
                 lasting impact. Our approach blends innovation with
                 functionality, ensuring every solution we build is not only
                 visually stunning but also highly efficient. From concept to

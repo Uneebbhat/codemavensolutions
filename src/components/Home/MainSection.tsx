@@ -23,7 +23,7 @@ const MainSection = () => {
           business online.
         </p>
         <Button className="w-full block md:hidden bg-white text-black-500 hover:bg-blue-500 hover:text-white transition-all">
-          Let's talk.
+          Let&apos;s talk.
         </Button>
       </div>
     </main>
