@@ -1,12 +1,18 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "@/components/common/Button";
 import { Menu } from "lucide-react";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const routes = [
     {
       label: "About Us",
@@ -69,42 +75,44 @@ const Header = () => {
         >
           <Menu />
         </button>
-        <div
-          className={`
-            absolute top-full left-0 w-full 
-            bg-white text-black-500 rounded-[8px]
-            transform origin-top 
-            transition-all duration-300 ease-in-out
-            ${
-              isOpen
-                ? "opacity-100 translate-y-0 scale-y-100"
-                : "opacity-0 -translate-y-2 scale-y-0 pointer-events-none"
-            }
-          `}
-        >
-          <nav className="flex flex-col items-start p-5 space-y-5">
-            {routes.map((route) => (
-              <a
-                key={route.href}
-                href={route.href}
-                className="text-black-500 hover:text-blue-500 transition-all"
-              >
-                {route.label}
-              </a>
-            ))}
+        {isMounted && (
+          <div
+            className={`
+              absolute top-full left-0 w-full 
+              bg-white text-black-500 rounded-[8px]
+              transform origin-top 
+              transition-all duration-300 ease-in-out
+              ${
+                isOpen
+                  ? "opacity-100 translate-y-0 scale-y-100"
+                  : "opacity-0 -translate-y-2 scale-y-0 pointer-events-none"
+              }
+            `}
+          >
+            <nav className="flex flex-col items-start p-5 space-y-5">
+              {routes.map((route) => (
+                <a
+                  key={route.href}
+                  href={route.href}
+                  className="text-black-500 hover:text-blue-500 transition-all"
+                >
+                  {route.label}
+                </a>
+              ))}
 
-            <Link
-              href="https://cal.com/codemavensolutions/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full"
-            >
-              <Button className="w-full bg-black-500 text-white hover:bg-blue-500">
-                Let&apos;s talk.
-              </Button>
-            </Link>
-          </nav>
-        </div>
+              <Link
+                href="https://cal.com/codemavensolutions/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full"
+              >
+                <Button className="w-full bg-black-500 text-white hover:bg-blue-500">
+                  Let&apos;s talk.
+                </Button>
+              </Link>
+            </nav>
+          </div>
+        )}
       </div>
     </header>
   );
