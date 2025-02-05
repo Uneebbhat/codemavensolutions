@@ -1,17 +1,8 @@
 "use client";
 import Button from "../common/Button";
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
-
-// Lazy load Spline component
-const Spline = dynamic(() => import("@splinetool/react-spline"), {
-  loading: () => (
-    <div className="absolute top-0 left-0 w-full h-full bg-black-500" />
-  ),
-  ssr: false, // Disable server-side rendering for Spline
-});
-
+import Spline from "@splinetool/react-spline";
 const MainSection = () => {
   return (
     <main
