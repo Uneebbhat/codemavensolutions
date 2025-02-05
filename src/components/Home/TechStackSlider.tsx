@@ -1,8 +1,12 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
+import { motion, useInView } from "framer-motion";
 
 const TechStackSlider = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { margin: "-100px" });
+
   const images = [
     { src: "/assets/next.svg", alt: "Next.js", size: 80 },
     { src: "/assets/react.svg", alt: "React", size: 60 },
@@ -40,8 +44,19 @@ const TechStackSlider = () => {
   }, [totalWidth]);
 
   return (
-    <section className="bg-white rounded-[20px] mt-[12px] p-[20px] overflow-hidden">
-      <div className="relative">
+    <motion.section
+      ref={ref}
+      initial={{ opacity: 0, y: 100 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="bg-white rounded-[20px] mt-[12px] p-[20px] overflow-hidden"
+    >
+      <motion.div
+        initial={{ opacity: 0, x: -50 }}
+        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="relative"
+      >
         <div
           className="flex gap-[40px]"
           style={{
@@ -50,8 +65,13 @@ const TechStackSlider = () => {
           }}
         >
           {[...images, ...images].map((image, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={
+                isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }
+              }
+              transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
               className="flex-shrink-0 w-[100px] h-[100px] flex items-center justify-center"
             >
               <Image
@@ -61,11 +81,11 @@ const TechStackSlider = () => {
                 height={image.size}
                 className="object-cover"
               />
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 };
 

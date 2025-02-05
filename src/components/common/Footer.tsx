@@ -1,8 +1,13 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import React, { useRef } from "react";
 import { Mail, Phone } from "lucide-react";
+import { motion, useInView } from "framer-motion";
 
 const Footer = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   const routes = [
     {
       label: "About Us",
@@ -33,60 +38,94 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="bg-black-500 text-white rounded-[20px] p-[20px] mt-[12px]">
+      <motion.footer
+        ref={ref}
+        initial={{ opacity: 0, y: 100 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="bg-black-500 text-white rounded-[20px] p-[20px] mt-[12px]"
+      >
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-[40px]">
             {/* Company Info */}
-            <div className="lg:col-span-2">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="lg:col-span-2"
+            >
               <h1 className="text-h3 md:text-h2 lg:text-h1 font-medium leading-tight">
                 Let&apos;s Build Something Amazing
               </h1>
               <div className="mt-[30px] flex flex-wrap gap-x-[40px]">
                 <nav className="flex flex-col gap-[20px]">
                   {routes.map((route, index) => (
-                    <Link
+                    <motion.div
                       key={index}
-                      href={route.href}
-                      className="hover:text-blue-500 transition-colors duration-200 text-bodyLarge"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={
+                        isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }
+                      }
+                      transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                     >
-                      {route.label}
-                    </Link>
+                      <Link
+                        href={route.href}
+                        className="hover:text-blue-500 transition-colors duration-200 text-bodyLarge"
+                      >
+                        {route.label}
+                      </Link>
+                    </motion.div>
                   ))}
                 </nav>
               </div>
-            </div>
+            </motion.div>
 
             {/* Contact Info */}
-            <div className="bg-white/5 rounded-[15px] p-[30px]">
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="bg-white/5 rounded-[15px] p-[30px]"
+            >
               <h2 className="text-h4 md:text-h3 font-medium mb-[25px]">
                 Get in Touch
               </h2>
               <div className="flex flex-col gap-[25px]">
                 {contactInfo.map((info, index) => (
-                  <div
+                  <motion.div
                     key={index}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={
+                      isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }
+                    }
+                    transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
                     className="flex items-center gap-[15px] hover:translate-x-2 transition-transform duration-200"
                   >
-                    <div className="bg-white/10 p-2 rounded-full">
+                    <div className="bg-white/10 p-2 rounded-full flex-shrink-0">
                       {info.icon}
                     </div>
                     {info.href ? (
                       <Link
                         href={info.href}
-                        className="hover:text-blue-500 transition-colors duration-200"
+                        className="hover:text-blue-500 transition-colors duration-200 break-all"
                       >
                         {info.text}
                       </Link>
                     ) : (
-                      <span>{info.text}</span>
+                      <span className="break-all">{info.text}</span>
                     )}
-                  </div>
+                  </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           </div>
 
-          <div className="mt-[60px] pt-[30px] border-t border-white/10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="mt-[60px] pt-[30px] border-t border-white/10"
+          >
             <div className="flex flex-col sm:flex-row justify-between items-center gap-[20px]">
               <h3 className="text-h5 font-medium">Codemaven Solutions</h3>
               <p className="text-sm text-white/70 text-center sm:text-right">
@@ -94,9 +133,9 @@ const Footer = () => {
                 reserved.
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
-      </footer>
+      </motion.footer>
     </>
   );
 };

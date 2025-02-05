@@ -1,31 +1,60 @@
-import React from "react";
+"use client";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 const AboutUsSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { margin: "-100px" }); // Removed once: true to allow re-animation
+
   return (
-    <section
+    <motion.section
+      ref={ref}
+      initial={{ opacity: 0, y: 100 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
       className="text-black-500 p-[20px] bg-white rounded-[20px] mt-[12px]"
       id="about-us"
     >
       {/* About Us Label */}
-      <div className="mb-4 bg-lightGray-500 rounded-[8px] p-[20px]">
+      <motion.div
+        initial={{ opacity: 0, x: -50 }}
+        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="mb-4 bg-lightGray-500 rounded-[8px] p-[20px]"
+      >
         <span className="text-sm font-medium uppercase">ABOUT US</span>
-      </div>
+      </motion.div>
 
       <div className="flex flex-col mt-[12px]">
         {/* Header Section - Left Side */}
-        <div className="w-full md:w-1/2">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
+          className="w-full md:w-1/2"
+        >
           <h2 className="text-h4 md:text-h2 font-medium mb-[20px]">
             Innovating the Digital <br className="hidden md:block" />
             World with Purpose
           </h2>
           <hr className="border-black-500" />
-        </div>
+        </motion.div>
 
         {/* Content Section */}
-        <div className="w-full md:w-[60%] md:ml-auto mt-[40px] md:mt-[136px]">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
+          className="w-full md:w-[60%] md:ml-auto mt-[40px] md:mt-[136px]"
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Left Column */}
-            <div className="space-y-4">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              transition={{ duration: 0.5, delay: 1.2 }}
+              className="space-y-4"
+            >
               <h2 className="text-lg md:text-xl font-medium">
                 A Tech Company Built for Impact
               </h2>
@@ -37,10 +66,15 @@ const AboutUsSection = () => {
                 empower businesses with technology that enhances engagement,
                 streamlines operations, and accelerates growth.
               </p>
-            </div>
+            </motion.div>
 
             {/* Right Column */}
-            <div className="space-y-4">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              transition={{ duration: 0.5, delay: 1.4 }}
+              className="space-y-4"
+            >
               <h2 className="text-lg md:text-xl font-medium">
                 Commitment, Creativity & Excellence
               </h2>
@@ -53,11 +87,11 @@ const AboutUsSection = () => {
                 execution, we are committed to delivering excellence every step
                 of the way.
               </p>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

@@ -1,6 +1,16 @@
+"use client";
 import Button from "../common/Button";
 import Link from "next/link";
-import Spline from "@splinetool/react-spline";
+import dynamic from "next/dynamic";
+import { motion } from "framer-motion";
+
+// Lazy load Spline component
+const Spline = dynamic(() => import("@splinetool/react-spline"), {
+  loading: () => (
+    <div className="absolute top-0 left-0 w-full h-full bg-black-500" />
+  ),
+  ssr: false, // Disable server-side rendering for Spline
+});
 
 const MainSection = () => {
   return (
@@ -13,7 +23,13 @@ const MainSection = () => {
         className="absolute top-0 left-0 w-full h-full"
       />
 
-      <div className="relative z-10 flex flex-col flex-grow justify-end pb-[40px] gap-[20px]">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }} // Reduced y distance
+        whileInView={{ opacity: 1, y: 0 }} // Changed to whileInView
+        viewport={{ once: true }} // Only animate once
+        transition={{ duration: 0.3 }} // Reduced duration and removed delay
+        className="relative z-10 flex flex-col flex-grow justify-end pb-[40px] gap-[20px]"
+      >
         <h1 className="text-h4 md:text-h1 font-medium">
           Crafting Digital
           <br />
@@ -36,7 +52,7 @@ const MainSection = () => {
             Let&apos;s talk.
           </Button>
         </Link>
-      </div>
+      </motion.div>
     </main>
   );
 };

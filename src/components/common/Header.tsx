@@ -4,6 +4,7 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import Button from "@/components/common/Button";
 import { Menu } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,7 +32,12 @@ const Header = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <header className="sticky top-[12px] w-full flex items-center justify-between bg-black-500 text-white rounded-[20px] p-[20px] z-20">
+    <motion.header
+      initial={{ opacity: 0, y: -100 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="sticky top-[12px] w-full flex items-center justify-between bg-black-500 text-white rounded-[20px] p-[20px] z-20"
+    >
       <div className="logo">
         <a href="#home">
           <Image
@@ -114,7 +120,7 @@ const Header = () => {
           </div>
         )}
       </div>
-    </header>
+    </motion.header>
   );
 };
 

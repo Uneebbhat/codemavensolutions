@@ -1,7 +1,12 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 const OurServicesSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { margin: "-100px" });
+
   const services = [
     {
       title: "UI/UX Design",
@@ -39,17 +44,31 @@ const OurServicesSection = () => {
     },
   ];
   return (
-    <section
+    <motion.section
+      ref={ref}
+      initial={{ opacity: 0, y: 100 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
       className="text-black-500 p-[20px] bg-white rounded-[20px] mt-[12px]"
       id="our-services"
     >
       {/* About Us Label */}
-      <div className="mb-4 bg-lightGray-500 rounded-[8px] p-[20px]">
+      <motion.div
+        initial={{ opacity: 0, x: -50 }}
+        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="mb-4 bg-lightGray-500 rounded-[8px] p-[20px]"
+      >
         <span className="text-sm font-medium uppercase">OUR SERVICES</span>
-      </div>
+      </motion.div>
 
       <div className="flex flex-col md:flex-row mt-[12px] gap-[20px]">
-        <div className="w-full md:w-1/2">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="w-full md:w-1/2"
+        >
           <h2 className="text-h4 md:text-h2 font-medium">
             Your One-Stop Tech
             <br className="hidden md:block" />
@@ -61,12 +80,24 @@ const OurServicesSection = () => {
             businesses thrive in the digital world.
           </p>
           <hr className="border-black-500" />
-        </div>
+        </motion.div>
 
-        <div className="w-full md:w-1/2">
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+          transition={{ duration: 0.5, delay: 1.2 }}
+          className="w-full md:w-1/2"
+        >
           <div className="flex flex-col gap-[20px]">
             {services.map((service, i) => (
-              <div key={i}>
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 50 }}
+                animate={
+                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }
+                }
+                transition={{ duration: 0.5, delay: 1 + i * 0.2 }}
+              >
                 <h4 className="text-h4 font-medium">{service.title}</h4>
                 <p className="text-bodyLarge font-regular my-[20px]">
                   {service.description}
@@ -87,12 +118,12 @@ const OurServicesSection = () => {
                     </p>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
