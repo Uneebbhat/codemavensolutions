@@ -21,13 +21,13 @@ const Footer = () => {
   const contactInfo = [
     {
       icon: <Mail className="w-5 h-5" />,
-      text: "uneebbhatti3@gmail.com",
-      href: "mailto:uneebbhatti3@gmail.com",
+      text: "contact.codemavensolutions@gmail.com",
+      href: "mailto:contact.codemavensolutions@gmail.com",
     },
     {
       icon: <Phone className="w-5 h-5" />,
       text: "+923364769000",
-      href: "tel:+923364769000",
+      href: "https://wa.me/923364769000",
     },
   ];
 
