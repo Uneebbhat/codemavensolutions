@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import React, { useRef } from "react";
-import { Mail, Phone, Github, Linkedin, Twitter, MapPin } from "lucide-react";
+import { Mail, Phone, Github, Linkedin, MapPin } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 
 const Footer = () => {
