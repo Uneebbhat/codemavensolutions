@@ -5,17 +5,17 @@ import { motion, useInView } from "framer-motion";
 
 const OurServicesSection = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { margin: "-100px" });
+  const isInView = useInView(ref, { margin: "0px" });
 
   const services = [
     {
       title: "UI/UX Design",
       description: `A great product isn't just about functionality—it's about
-                how it feels. At Codemaven Solutions, we design user interfaces
-                that are not only visually stunning but also intuitive and
-                user-friendly. Our UI/UX design process focuses on creating
-                seamless interactions that enhance user engagement and elevate
-                your brand's digital presence.`,
+              how it feels. At Codemaven Solutions, we design user interfaces
+              that are not only visually stunning but also intuitive and
+              user-friendly. Our UI/UX design process focuses on creating
+              seamless interactions that enhance user engagement and elevate
+              your brand's digital presence.`,
       tags: [
         "User Research & Wireframing",
         "Modern & Aesthetic UI Design",
@@ -42,7 +42,18 @@ const OurServicesSection = () => {
         "UI/UX Optimized Experiences",
       ],
     },
+    {
+      title: "Consultation",
+      description: `Navigating the digital landscape can be challenging. At Codemaven Solutions, we provide expert consultation to help businesses strategize, optimize, and execute their digital transformation effectively. Whether you're a startup or an enterprise, our tailored guidance ensures you make informed decisions.`,
+      tags: [
+        "Technical Strategy & Roadmapping",
+        "Code & Architecture Review",
+        "Business Digital Transformation",
+        "Scalability & Performance Optimization",
+      ],
+    },
   ];
+
   return (
     <motion.section
       ref={ref}
@@ -54,8 +65,8 @@ const OurServicesSection = () => {
     >
       {/* About Us Label */}
       <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+        initial={{ opacity: 0, y: -50 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
         transition={{ duration: 0.5, delay: 0.2 }}
         className="mb-4 bg-lightGray-500 rounded-[8px] p-[20px]"
       >
@@ -64,8 +75,8 @@ const OurServicesSection = () => {
 
       <div className="flex flex-col md:flex-row mt-[12px] gap-[20px]">
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+          initial={{ opacity: 0, y: -50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
           transition={{ duration: 0.5, delay: 0.4 }}
           className="w-full md:w-1/2"
         >
@@ -83,8 +94,8 @@ const OurServicesSection = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.5, delay: 1.2 }}
           className="w-full md:w-1/2"
         >

@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 
 const AboutUsSection = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { margin: "-100px" }); // Removed once: true to allow re-animation
+  const isInView = useInView(ref, { margin: "0px" });
 
   return (
     <motion.section
@@ -17,8 +17,8 @@ const AboutUsSection = () => {
     >
       {/* About Us Label */}
       <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+        initial={{ opacity: 0, y: -50 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
         transition={{ duration: 0.5, delay: 0.2 }}
         className="mb-4 bg-lightGray-500 rounded-[8px] p-[20px]"
       >
@@ -28,8 +28,8 @@ const AboutUsSection = () => {
       <div className="flex flex-col mt-[12px]">
         {/* Header Section - Left Side */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+          initial={{ opacity: 0, y: -50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
           transition={{ duration: 0.5, delay: 0.8 }}
           className="w-full md:w-1/2"
         >

@@ -6,7 +6,7 @@ import { motion, useInView } from "framer-motion";
 
 const OurProjectSection = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { margin: "-100px" });
+  const isInView = useInView(ref, { margin: "0px" });
 
   const projectImages = [
     {
@@ -28,8 +28,8 @@ const OurProjectSection = () => {
     >
       {/* Section Header */}
       <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+        initial={{ opacity: 0, y: -50 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
         transition={{ duration: 0.5, delay: 0.2 }}
         className="mb-4 bg-lightGray-500 rounded-[8px] p-[20px]"
       >
