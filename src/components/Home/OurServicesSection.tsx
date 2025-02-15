@@ -80,12 +80,12 @@ const OurServicesSection = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="w-full md:w-1/2"
         >
-          <h2 className="text-h4 md:text-h2 font-medium">
+          <h2 className="text-h4 md:text-h2 font-medium leading-[37px] md:leading-[58px]">
             Your One-Stop Tech
             <br className="hidden md:block" />
             Partner for Exceptional Digital Solutions
           </h2>
-          <p className="text-bodyLarge font-regular my-[20px]">
+          <p className="text-bodyLarge font-regular my-[20px] leading-[24px]">
             We turn bold ideas into reality with cutting-edge technology and
             seamless user experiences. From concept to execution, we help
             businesses thrive in the digital world.
@@ -110,7 +110,7 @@ const OurServicesSection = () => {
                 transition={{ duration: 0.5, delay: 1 + i * 0.2 }}
               >
                 <h4 className="text-h4 font-medium">{service.title}</h4>
-                <p className="text-bodyLarge font-regular my-[20px]">
+                <p className="text-bodyLarge font-regular my-[20px] leading-[24px]">
                   {service.description}
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-[10px] text-lightGray-900">

@@ -33,7 +33,7 @@ const AboutUsSection = () => {
           transition={{ duration: 0.5, delay: 0.8 }}
           className="w-full md:w-1/2"
         >
-          <h2 className="text-h4 md:text-h2 font-medium mb-[20px]">
+          <h2 className="text-h4 leading-[37px] md:text-h2 font-medium mb-[20px] md:leading-[58px]">
             Innovating the Digital <br className="hidden md:block" />
             World with Purpose
           </h2>
@@ -58,7 +58,7 @@ const AboutUsSection = () => {
               <h2 className="text-lg md:text-xl font-medium">
                 A Tech Company Built for Impact
               </h2>
-              <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+              <p className="text-gray-600 leading-[22px] text-sm md:text-base">
                 Codemaven Solutions was founded with a vision to redefine the
                 digital landscape. We are a team of passionate problem-solvers,
                 designers, and developers dedicated to crafting seamless digital
@@ -78,7 +78,7 @@ const AboutUsSection = () => {
               <h2 className="text-lg md:text-xl font-medium">
                 Commitment, Creativity & Excellence
               </h2>
-              <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+              <p className="text-gray-600 leading-[22px] text-sm md:text-base">
                 At Codemaven Solutions, we believe technology is more than just
                 code—it&apos;s about creating intuitive experiences that leave a
                 lasting impact. Our approach blends innovation with

@@ -21,12 +21,12 @@ const MainSection = () => {
         transition={{ duration: 0.3 }} // Reduced duration and removed delay
         className="relative z-10 flex flex-col flex-grow justify-end pb-[40px] gap-[20px]"
       >
-        <h1 className="text-h4 md:text-h1 font-medium">
+        <h1 className="text-h4 md:text-h1 font-medium leading-[37px] md:leading-[73px]">
           Crafting Digital
           <br />
           Experiences That Connect
         </h1>
-        <p className="text-bodyMedium w-full md:text-bodyLarge mx-auto font-regular">
+        <p className="text-bodyMedium leading-[18px] w-full md:text-bodyLarge md:leading-[24px]  mx-auto font-regular">
           We build innovative digital solutions that transform your vision into
           success—helping you
           <br />
