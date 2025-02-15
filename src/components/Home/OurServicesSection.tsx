@@ -5,7 +5,7 @@ import { motion, useInView } from "framer-motion";
 
 const OurServicesSection = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { margin: "0px" });
+  const isInView = useInView(ref, { margin: "0px", once: true });
 
   const services = [
     {

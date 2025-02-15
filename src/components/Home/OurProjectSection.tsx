@@ -6,14 +6,28 @@ import { motion, useInView } from "framer-motion";
 
 const OurProjectSection = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { margin: "0px" });
+  const isInView = useInView(ref, { margin: "0px", once: true });
 
   const projectImages = [
     {
       src: "/assets/project1.png",
       alt: "ALM Traders Website",
-      tags: ["ALMTraders", "Web Design", "Web Development"],
+      tags: [
+        "ALMTraders",
+        "Web Design",
+        "Web Development",
+        "NextJS",
+        "ReactJS",
+      ],
       link: "https://www.almtraders.org/",
+      title: "ALM Traders",
+    },
+    {
+      src: "/assets/project2.png",
+      alt: "Staffly App",
+      tags: ["Staffly", "App Design", "App Development", "React Native"],
+      link: "https://www.figma.com/design/SdlGWv5HuOCQT0x0RHNtGV/Staffly?node-id=0-1&t=w2OpdZewRWSurKpr-1",
+      title: "Staffly",
     },
   ];
 
@@ -79,6 +93,9 @@ const OurProjectSection = () => {
                 ))}
               </div>
             </Link>
+            <div className="mt-[5px]">
+              <h6 className="text-h6 font-bold">{project.title}</h6>
+            </div>
           </motion.div>
         ))}
       </div>

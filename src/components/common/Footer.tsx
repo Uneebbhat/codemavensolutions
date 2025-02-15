@@ -25,7 +25,7 @@ const Footer = () => {
   const contactInfo = [
     {
       icon: <Mail className="w-4 h-4" />,
-      text: "contact.codemavensolutions@gmail.com",
+      text: "Email us",
       href: "mailto:contact.codemavensolutions@gmail.com",
     },
     {
@@ -59,11 +59,11 @@ const Footer = () => {
       initial={{ opacity: 0, y: 100 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="bg-black-500 text-white mt-[12px] rounded-t-[20px]"
+      className="bg-black-500 text-white mt-[12px] rounded-[20px]"
     >
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[0]">
+        <div className="flex gap-[50px] flex-wrap">
           {/* Company Info */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -148,7 +148,7 @@ const Footer = () => {
                 <li key={index}>
                   <Link
                     href={info.href}
-                    className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors"
+                    className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors break-words"
                   >
                     {info.icon}
                     <span>{info.text}</span>

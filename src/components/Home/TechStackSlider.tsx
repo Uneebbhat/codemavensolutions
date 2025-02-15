@@ -5,7 +5,7 @@ import { motion, useInView } from "framer-motion";
 
 const TechStackSlider = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { margin: "-100px" });
+  const isInView = useInView(ref, { margin: "-100px", once: true });
 
   const images = [
     { src: "/assets/next.svg", alt: "Next.js", size: 80 },

@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 
 const OurProcessSection = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { margin: "0px" });
+  const isInView = useInView(ref, { margin: "0px", once: true });
 
   const process = [
     {
@@ -76,7 +76,7 @@ const OurProcessSection = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
               transition={{ duration: 0.5, delay: 0.6 + index * 0.2 }}
-              className="bg-lightGray-500 rounded-[8px] p-[20px] relative h-[300px] md:h-[466px] w-full max-w-full"
+              className="bg-lightGray-500 rounded-[8px] p-[20px] relative h-[400px] md:h-[466px] w-full max-w-full"
             >
               <h1
                 className="text-[250px] md:text-[250px] absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-transparent font-bold opacity-100 md:opacity-100"

@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 
 const AboutUsSection = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { margin: "0px" });
+  const isInView = useInView(ref, { margin: "0px", once: true });
 
   return (
     <motion.section
