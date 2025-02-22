@@ -1,7 +1,14 @@
 "use client";
 import Link from "next/link";
 import React, { useRef } from "react";
-import { Mail, Phone, Github, Linkedin, MapPin } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  Linkedin,
+  MapPin,
+  Instagram,
+  Facebook,
+} from "lucide-react";
 import { motion, useInView } from "framer-motion";
 
 const Footer = () => {
@@ -19,7 +26,6 @@ const Footer = () => {
     { label: "UI/UX Design", href: "#our-services" },
     { label: "Web Development", href: "#our-services" },
     { label: "Mobile Apps", href: "#our-services" },
-    { label: "Consulting", href: "#our-services" },
   ];
 
   const contactInfo = [
@@ -42,14 +48,19 @@ const Footer = () => {
 
   const socialLinks = [
     {
-      icon: <Github className="w-5 h-5" />,
-      href: "https://github.com/Uneebbhat",
-      label: "GitHub",
-    },
-    {
       icon: <Linkedin className="w-5 h-5" />,
       href: "https://www.linkedin.com/company/codemavensolutions/",
       label: "LinkedIn",
+    },
+    {
+      icon: <Facebook className="w-5 h-5" />,
+      href: "https://www.facebook.com/codemavensolutions/",
+      label: "Facebook",
+    },
+    {
+      icon: <Instagram className="w-5 h-5" />,
+      href: "https://www.instagram.com/codemavensolutions/",
+      label: "Instagram",
     },
   ];
 

@@ -42,16 +42,16 @@ const OurServicesSection = () => {
         "UI/UX Optimized Experiences",
       ],
     },
-    {
-      title: "Consultation",
-      description: `Navigating the digital landscape can be challenging. At Codemaven Solutions, we provide expert consultation to help businesses strategize, optimize, and execute their digital transformation effectively. Whether you're a startup or an enterprise, our tailored guidance ensures you make informed decisions.`,
-      tags: [
-        "Technical Strategy & Roadmapping",
-        "Code & Architecture Review",
-        "Business Digital Transformation",
-        "Scalability & Performance Optimization",
-      ],
-    },
+    // {
+    //   title: "Consultation",
+    //   description: `Navigating the digital landscape can be challenging. At Codemaven Solutions, we provide expert consultation to help businesses strategize, optimize, and execute their digital transformation effectively. Whether you're a startup or an enterprise, our tailored guidance ensures you make informed decisions.`,
+    //   tags: [
+    //     "Technical Strategy & Roadmapping",
+    //     "Code & Architecture Review",
+    //     "Business Digital Transformation",
+    //     "Scalability & Performance Optimization",
+    //   ],
+    // },
   ];
 
   return (
