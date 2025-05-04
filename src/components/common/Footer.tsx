@@ -36,13 +36,13 @@ const Footer = () => {
     },
     {
       icon: <Mail className="w-4 h-4" />,
-      text: "Email us",
+      text: "hello@codemavensolutions.com",
       href: "mailto:hello@codemavensolutions.com",
     },
     {
       icon: <Phone className="w-4 h-4" />,
-      text: "+923364769000",
-      href: "https://wa.me/923364769000",
+      text: "+923147257787",
+      href: "https://wa.me/923147257787",
     },
     {
       icon: <MapPin className="w-4 h-4" />,
