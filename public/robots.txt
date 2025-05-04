@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://codemavensolutions.vercel.app
+Host: https://www.codemavensolutions.com
 
 # Sitemaps
-Sitemap: https://codemavensolutions.vercel.app/sitemap.xml
+Sitemap: https://www.codemavensolutions.com/sitemap.xml

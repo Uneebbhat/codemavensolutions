@@ -1,5 +1,5 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://codemavensolutions.vercel.app", // Your website URL
+  siteUrl: "https://www.codemavensolutions.com", // Your website URL
   generateRobotsTxt: true, // Creates a robots.txt file
 };
