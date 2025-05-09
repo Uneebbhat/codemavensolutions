@@ -53,7 +53,7 @@ const Header = () => {
         <nav className="flex items-center space-x-2.5">
           {routes.map((route, index) => (
             <React.Fragment key={index}>
-              <a href={route.href} className="hover:text-blue-500">
+              <a href={route.href} className="hover:text-[#003AFC]">
                 {route.label}
               </a>
               {index < routes.length && (
@@ -67,7 +67,7 @@ const Header = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Button className="transition-all bg-white text-black-500 hover:bg-blue-500 hover:text-white">
+          <Button className="transition-all bg-white text-black-500 hover:bg-[#003AFC] hover:text-white">
             Let&apos;s talk.
           </Button>
         </Link>

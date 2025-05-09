@@ -31,17 +31,12 @@ const Footer = () => {
   const contactInfo = [
     {
       icon: <Mail className="w-4 h-4" />,
-      text: "Email us",
-      href: "mailto:contact.codemavensolutions@gmail.com",
-    },
-    {
-      icon: <Mail className="w-4 h-4" />,
       text: "hello@codemavensolutions.com",
       href: "mailto:hello@codemavensolutions.com",
     },
     {
       icon: <Phone className="w-4 h-4" />,
-      text: "+923147257787",
+      text: "+92 314 7257787",
       href: "https://wa.me/923147257787",
     },
     {

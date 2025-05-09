@@ -39,7 +39,7 @@ const MainSection = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Button className="w-full block md:hidden bg-white text-black-500 hover:bg-blue-500 hover:text-white transition-all">
+          <Button className="w-full block md:hidden bg-white text-black-500 hover:bg-[#003AFC] hover:text-white transition-all">
             Let&apos;s talk.
           </Button>
         </Link>
