@@ -24,10 +24,43 @@ const OurProjectSection = () => {
     },
     {
       src: "/assets/project2.png",
-      alt: "Staffly App",
-      tags: ["Staffly", "App Design", "App Development", "React Native"],
-      link: "https://www.figma.com/design/SdlGWv5HuOCQT0x0RHNtGV/Staffly?node-id=0-1&t=w2OpdZewRWSurKpr-1",
-      title: "Staffly",
+      alt: "RoadPilot Business",
+      tags: [
+        "RoadPilot Business",
+        "Web Development",
+        "MERN Stack",
+        "TailwindCSS",
+      ],
+      link: "https://roadpilotbusiness.com/",
+      title: "RoadPilot Business",
+    },
+    {
+      src: "/assets/project3.png",
+      alt: "Dulche",
+      tags: ["Dulche", "Web Development", "WordPress"],
+      link: "https://dulche.co.uk/",
+      title: "Dulche",
+    },
+    {
+      src: "/assets/project4.png",
+      alt: "Right Home",
+      tags: ["Right Home", "Web Development", "WordPress"],
+      link: "https://righthomedubai.com/",
+      title: "Right Home",
+    },
+    {
+      src: "/assets/project5.png",
+      alt: "West Coast Waste",
+      tags: [
+        "West Coast Waste",
+        "Web Development",
+        "WordPress",
+        "PHP",
+        "JavaScript",
+        "WordPress CMS",
+      ],
+      link: "https://westcoastwaste.epizy.com/",
+      title: "West Coast Waste",
     },
   ];
 
