@@ -26,6 +26,8 @@ const Footer = () => {
     { label: "UI/UX Design", href: "#our-services" },
     { label: "Web Development", href: "#our-services" },
     { label: "Mobile Apps", href: "#our-services" },
+    { label: "AI Chatbots", href: "#our-services" },
+    { label: "Custom Software Development", href: "#our-services" },
   ];
 
   const contactInfo = [
