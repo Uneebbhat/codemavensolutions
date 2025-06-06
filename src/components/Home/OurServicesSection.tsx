@@ -42,6 +42,25 @@ const OurServicesSection = () => {
         "UI/UX Optimized Experiences",
       ],
     },
+    {
+      title: "AI Chatbots",
+      description: `Harness the power of conversational AI to automate workflows, support, and engagement. We build intelligent chatbots tailored to your use-case, helping you provide 24/7 customer support and streamline business operations through smart automation.`,
+      tags: [
+        "GPT Integration & Custom AI",
+        "WhatsApp & Web Chatbots",
+        "Third-Party Integrations",
+      ],
+    },
+    {
+      title: "Custom Software Development",
+      description: `Unique businesses need unique solutions. We craft bespoke software applications optimized for performance, reliability, and growth. Our custom solutions are designed to solve your specific challenges and scale with your business needs.`,
+      tags: [
+        "Business Process Automation",
+        "CRM & ERP Systems",
+        "Secure Backend Architecture",
+        "Third-Party Integrations",
+      ],
+    },
     // {
     //   title: "Consultation",
     //   description: `Navigating the digital landscape can be challenging. At Codemaven Solutions, we provide expert consultation to help businesses strategize, optimize, and execute their digital transformation effectively. Whether you're a startup or an enterprise, our tailored guidance ensures you make informed decisions.`,
