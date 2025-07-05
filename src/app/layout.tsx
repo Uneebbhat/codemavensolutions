@@ -4,6 +4,7 @@ import "../styles/font-face.css";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Codemaven Solutions | Crafting Innovative Digital Solutions",
@@ -65,6 +66,7 @@ export default function RootLayout({
       <body className={`font-aspekta antialiased`}>
         <Header />
         {children}
+        <Analytics />
         <Footer />
       </body>
     </html>
