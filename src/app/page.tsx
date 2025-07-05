@@ -1,4 +1,5 @@
 import AboutUsSection from "@/components/Home/AboutUsSection";
+import HireUsOnUpworkSection from "@/components/Home/HireUsOnUpworkSection";
 import MainSection from "@/components/Home/MainSection";
 import OurProcessSection from "@/components/Home/OurProcessSection";
 import OurProjectSection from "@/components/Home/OurProjectSection";
@@ -13,6 +14,7 @@ export default function Home() {
       <OurServicesSection />
       <TechStackSlider />
       <OurProjectSection />
+      <HireUsOnUpworkSection />
       <OurProcessSection />
     </>
   );

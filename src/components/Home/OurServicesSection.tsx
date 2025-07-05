@@ -82,76 +82,78 @@ const OurServicesSection = () => {
       className="text-black-500 p-[20px] bg-white rounded-[20px] mt-[12px]"
       id="our-services"
     >
-      {/* About Us Label */}
-      <motion.div
-        initial={{ opacity: 0, y: -50 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="mb-4 bg-lightGray-500 rounded-[8px] p-[20px]"
-      >
-        <span className="text-sm font-medium uppercase">OUR SERVICES</span>
-      </motion.div>
-
-      <div className="flex flex-col md:flex-row mt-[12px] gap-[20px]">
+      <div className="container mx-auto">
+        {/* About Us Label */}
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="w-full md:w-1/2"
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mb-4 bg-lightGray-500 rounded-[8px] p-[20px]"
         >
-          <h2 className="text-h4 md:text-h2 font-medium leading-[37px] md:leading-[58px]">
-            Your One-Stop Tech
-            <br className="hidden md:block" />
-            Partner for Exceptional Digital Solutions
-          </h2>
-          <p className="text-bodyLarge font-regular my-[20px] leading-[24px]">
-            We turn bold ideas into reality with cutting-edge technology and
-            seamless user experiences. From concept to execution, we help
-            businesses thrive in the digital world.
-          </p>
-          <hr className="border-black-500" />
+          <span className="text-sm font-medium uppercase">OUR SERVICES</span>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.5, delay: 1.2 }}
-          className="w-full md:w-1/2"
-        >
-          <div className="flex flex-col gap-[20px]">
-            {services.map((service, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 50 }}
-                animate={
-                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }
-                }
-                transition={{ duration: 0.5, delay: 1 + i * 0.2 }}
-              >
-                <h4 className="text-h4 font-medium">{service.title}</h4>
-                <p className="text-bodyLarge font-regular my-[20px] leading-[24px]">
-                  {service.description}
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-[10px] text-lightGray-900">
-                  {service.tags.map((tag, i) => (
-                    <p
-                      key={i}
-                      className="text-lightGray-900 flex items-baseline gap-[5px]"
-                    >
-                      <Image
-                        src="/assets/arrow.svg"
-                        alt="arrow"
-                        width={16}
-                        height={16}
-                      />
-                      {tag}
-                    </p>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+        <div className="flex flex-col md:flex-row mt-[12px] gap-[20px]">
+          <motion.div
+            initial={{ opacity: 0, y: -50 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="w-full md:w-1/2"
+          >
+            <h2 className="text-h4 md:text-h2 font-medium leading-[37px] md:leading-[58px]">
+              Your One-Stop Tech
+              <br className="hidden md:block" />
+              Partner for Exceptional Digital Solutions
+            </h2>
+            <p className="text-bodyLarge font-regular my-[20px] leading-[24px]">
+              We turn bold ideas into reality with cutting-edge technology and
+              seamless user experiences. From concept to execution, we help
+              businesses thrive in the digital world.
+            </p>
+            <hr className="border-black-500" />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 0.5, delay: 1.2 }}
+            className="w-full md:w-1/2"
+          >
+            <div className="flex flex-col gap-[20px]">
+              {services.map((service, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={
+                    isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }
+                  }
+                  transition={{ duration: 0.5, delay: 1 + i * 0.2 }}
+                >
+                  <h4 className="text-h4 font-medium">{service.title}</h4>
+                  <p className="text-bodyLarge font-regular my-[20px] leading-[24px]">
+                    {service.description}
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-[10px] text-lightGray-900">
+                    {service.tags.map((tag, i) => (
+                      <p
+                        key={i}
+                        className="text-lightGray-900 flex items-baseline gap-[5px]"
+                      >
+                        <Image
+                          src="/assets/arrow.svg"
+                          alt="arrow"
+                          width={16}
+                          height={16}
+                        />
+                        {tag}
+                      </p>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
       </div>
     </motion.section>
   );
