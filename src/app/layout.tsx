@@ -1,10 +1,12 @@
-import type { Metadata } from "next";
 import "./globals.css";
 import "../styles/font-face.css";
+import localFont from "next/font/local";
 import Header from "@/components/common/Header";
-import Footer from "@/components/common/Footer";
-import Script from "next/script";
+
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import Footer from "@/components/common/Footer";
 
 export const metadata: Metadata = {
   title: "Codemaven Solutions | Crafting Innovative Digital Solutions",
@@ -31,39 +33,26 @@ export const metadata: Metadata = {
   },
 };
 
+const polysans = localFont({
+  src: "../fonts/polysanstrial-neutralwide.otf",
+  variable: "--font-heading",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        {/* Apollo Tracker Script */}
-        <Script
-          id="apollo-tracking-script"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              function initApollo() {
-                var n = Math.random().toString(36).substring(7),
-                    o = document.createElement("script");
-                o.src = "https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=" + n;
-                o.async = true;
-                o.defer = true;
-                o.onload = function () {
-                  window.trackingFunctions?.onLoad({
-                    appId: "6818e22a5b9d1a000d51e900"
-                  });
-                };
-                document.head.appendChild(o);
-              }
-              initApollo();
-            `,
-          }}
-        />
-      </head>
-      <body className={`font-aspekta antialiased`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.variable} ${polysans.variable} font-sans`}>
         <Header />
         {children}
         <Analytics />
