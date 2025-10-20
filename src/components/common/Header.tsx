@@ -1,127 +1,230 @@
 "use client";
-import Image from "next/image";
+
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
-import Button from "@/components/common/Button";
-import { Menu } from "lucide-react";
-import { motion } from "framer-motion";
+import Button from "./Button";
+import Image from "next/image";
 
-const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
+import React, { useState } from "react";
+import { ChevronDown, Menu, X } from "lucide-react";
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  const routes = [
-    {
-      label: "About Us",
-      href: "#about-us",
-    },
-    {
-      label: "Our Services",
-      href: "#our-services",
-    },
-    {
-      label: "Our Project",
-      href: "#our-project",
-    },
-  ];
-
-  const toggleMenu = () => setIsOpen(!isOpen);
+export default function Header() {
+  const [mobileOpen, setMobileOpen] = useState<boolean>(false);
+  const [servicesOpen, setServicesOpen] = useState<boolean>(false);
 
   return (
-    <motion.header
-      initial={{ opacity: 0, y: -100 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className="sticky top-[12px] w-full flex items-center justify-between bg-black-500 text-white rounded-[20px] p-[20px] z-20"
-    >
-      <div className="logo">
-        <a href="#home">
-          <Image
-            src="/assets/logo.svg"
-            alt="Codemaven Solutions"
-            width={100}
-            height={100}
-          />
-        </a>
-      </div>
+    <>
+      <header className="px-5 md:px-[60px] py-5 border-b-2">
+        <div className="flex items-center justify-between max-w-[1450px] mx-auto">
+          {/* Logo */}
+          <div className="group relative w-[53px] h-[31px]">
+            <Link href={"/"}>
+              <Image
+                src="/logo.png"
+                alt="Codemaven Solutions"
+                width={53}
+                height={31}
+                className="absolute top-0 left-0 transition-opacity duration-300 group-hover:opacity-0"
+                loading="lazy"
+                quality={75}
+              />
+              <Image
+                src="/logo-blue.png"
+                alt="Codemaven Solutions"
+                width={53}
+                height={31}
+                className="absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                loading="lazy"
+                quality={75}
+              />
+            </Link>
+          </div>
 
-      <div className="hidden md:flex items-center space-x-2.5">
-        <nav className="flex items-center space-x-2.5">
-          {routes.map((route, index) => (
-            <React.Fragment key={index}>
-              <a href={route.href} className="hover:text-[#003AFC]">
-                {route.label}
-              </a>
-              {index < routes.length && (
-                <span className="mx-2.5 text-[30px]">/</span>
-              )}
-            </React.Fragment>
-          ))}
-        </nav>
-        <Link
-          href="https://cal.com/codemavensolutions/30min"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Button className="transition-all bg-white text-black-500 hover:bg-[#003AFC] hover:text-white">
-            Let&apos;s talk.
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center justify-center gap-10">
+            <Link
+              href={"/"}
+              className="hover:text-blue-500 transition-colors text-[14px]"
+            >
+              Home
+            </Link>
+
+            <Link
+              href={"/about"}
+              className="hover:text-blue-500 transition-colors text-[14px]"
+            >
+              About
+            </Link>
+
+            {/* Services dropdown */}
+            {/* <div
+              className="relative"
+              onMouseEnter={() => setOpen(true)}
+              onMouseLeave={() => setOpen(false)}
+            >
+              <button className="flex items-center justify-center gap-2 hover:text-blue-500 transition-colors text-[14px]">
+                Services <ChevronDown size={16} />
+              </button>
+
+              <div
+                className={`absolute left-0 mt-2 w-48 rounded-md bg-white shadow-lg border border-gray-200 transition-all duration-200 overflow-hidden ${
+                  open
+                    ? "opacity-100 visible translate-y-0"
+                    : "opacity-0 invisible -translate-y-2"
+                }`}
+              >
+                <div className="flex flex-col">
+                  <Link
+                    href="/services/web-development"
+                    className="px-4 py-2 hover:bg-gray-100 transition-colors text-[14px]"
+                  >
+                    Web Development
+                  </Link>
+                  <Link
+                    href="/services/app-development"
+                    className="px-4 py-2 hover:bg-gray-100 transition-colors text-[14px]"
+                  >
+                    App Development
+                  </Link>
+                  <Link
+                    href="/services/ui-ux-design"
+                    className="px-4 py-2 hover:bg-gray-100 transition-colors text-[14px]"
+                  >
+                    UI/UX Design
+                  </Link>
+                  <Link
+                    href="/services/ai-solutions"
+                    className="px-4 py-2 hover:bg-gray-100 transition-colors text-[14px]"
+                  >
+                    AI Solutions
+                  </Link>
+                </div>
+              </div>
+            </div> */}
+
+            <div className="flex items-center gap-2">
+              <span
+                className="text-[14px] text-muted-foreground cursor-not-allowed flex items-center gap-1"
+                aria-disabled="true"
+              >
+                Services
+              </span>
+            </div>
+          </nav>
+
+          {/* CTA */}
+          <Button className="hidden md:block">
+            <Link href={"https://cal.com/codemavensolutions/30min"}>
+              Book a call
+            </Link>
           </Button>
-        </Link>
-      </div>
+
+          {/* Mobile Menu Button */}
+          <div className="block md:hidden">
+            <button
+              onClick={() => setMobileOpen(true)}
+              aria-label="Menu hamburger"
+            >
+              <Menu size={24} />
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile Overlay */}
+      {mobileOpen && (
+        <div
+          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
+          onClick={() => setMobileOpen(false)}
+        />
+      )}
 
       {/* Mobile Menu */}
-      <div className="md:hidden">
-        <button
-          onClick={toggleMenu}
-          className="text-white transition-all hover:scale-110"
-        >
-          <Menu />
-        </button>
-        {isMounted && (
-          <div
-            className={`
-              absolute top-full left-0 w-full 
-              bg-white text-black-500 rounded-[8px]
-              transform origin-top 
-              transition-all duration-300 ease-in-out
-              ${
-                isOpen
-                  ? "opacity-100 translate-y-0 scale-y-100"
-                  : "opacity-0 -translate-y-2 scale-y-0 pointer-events-none"
-              }
-            `}
-          >
-            <nav className="flex flex-col items-start p-5 space-y-5">
-              {routes.map((route) => (
-                <a
-                  key={route.href}
-                  href={route.href}
-                  className="text-black-500 hover:text-blue-500 transition-all"
-                >
-                  {route.label}
-                </a>
-              ))}
+      <div
+        className={`fixed top-0 right-0 h-full w-4/5 max-w-sm bg-white z-50 transform transition-transform duration-300 ease-in-out ${
+          mobileOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="flex items-center justify-between px-5 py-4 border-b border-gray-200">
+          <Image
+            src="/logo-blue.png"
+            alt="Codemaven Solutions"
+            width={100}
+            height={40}
+          />
+          <button onClick={() => setMobileOpen(false)}>
+            <X size={24} aria-label="Menu close" />
+          </button>
+        </div>
 
+        <nav className="flex flex-col gap-4 px-6 py-6 text-lg font-medium text-gray-800">
+          <Link href="/" onClick={() => setMobileOpen(false)}>
+            Home
+          </Link>
+
+          {/* Mobile Services Accordion */}
+          <div>
+            <button
+              onClick={() => setServicesOpen(!servicesOpen)}
+              className="flex items-center justify-between w-full hover:text-blue-500 transition-colors"
+              aria-label="Services dropdown button"
+            >
+              <span>Services</span>
+              <ChevronDown
+                size={18}
+                className={`transition-transform duration-200 ${
+                  servicesOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+            <div
+              className={`flex flex-col pl-3 mt-2 overflow-hidden transition-all duration-300 ${
+                servicesOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+              }`}
+            >
               <Link
-                href="https://cal.com/codemavensolutions/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full"
+                href="/services/web-development"
+                onClick={() => setMobileOpen(false)}
+                className="py-1 text-gray-600 hover:text-blue-500"
               >
-                <Button className="w-full bg-black-500 text-white hover:bg-blue-500">
-                  Let&apos;s talk.
-                </Button>
+                Web Development
               </Link>
-            </nav>
+              <Link
+                href="/services/app-development"
+                onClick={() => setMobileOpen(false)}
+                className="py-1 text-gray-600 hover:text-blue-500"
+              >
+                App Development
+              </Link>
+              <Link
+                href="/services/ui-ux-design"
+                onClick={() => setMobileOpen(false)}
+                className="py-1 text-gray-600 hover:text-blue-500"
+              >
+                UI/UX Design
+              </Link>
+              <Link
+                href="/services/ai-solutions"
+                onClick={() => setMobileOpen(false)}
+                className="py-1 text-gray-600 hover:text-blue-500"
+              >
+                AI Solutions
+              </Link>
+            </div>
           </div>
-        )}
-      </div>
-    </motion.header>
-  );
-};
 
-export default Header;
+          <Link href="/contact" onClick={() => setMobileOpen(false)}>
+            Contact
+          </Link>
+
+          <div className="mt-6">
+            <Button className="w-full">
+              <Link href={"https://cal.com/codemavensolutions/30min"}>
+                Book a call
+              </Link>
+            </Button>
+          </div>
+        </nav>
+      </div>
+    </>
+  );
+}

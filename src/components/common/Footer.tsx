@@ -1,183 +1,70 @@
-"use client";
+import Image from "next/image";
 import Link from "next/link";
-import React, { useRef } from "react";
-import {
-  Mail,
-  Phone,
-  Linkedin,
-  MapPin,
-  Instagram,
-  Facebook,
-} from "lucide-react";
-import { motion, useInView } from "framer-motion";
 
-const Footer = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const companyLinks = [
-    { label: "About Us", href: "#about-us" },
-    { label: "Our Services", href: "#our-services" },
-    { label: "Our Projects", href: "#our-project" },
-    // { label: "Careers", href: "#careers" },
-  ];
-
-  const serviceLinks = [
-    { label: "UI/UX Design", href: "#our-services" },
-    { label: "Web Development", href: "#our-services" },
-    { label: "Mobile Apps", href: "#our-services" },
-    { label: "AI Chatbots", href: "#our-services" },
-    { label: "Custom Software Development", href: "#our-services" },
-  ];
-
-  const contactInfo = [
-    {
-      icon: <Mail className="w-4 h-4" />,
-      text: "hello@codemavensolutions.com",
-      href: "mailto:hello@codemavensolutions.com",
-    },
-    {
-      icon: <Phone className="w-4 h-4" />,
-      text: "+92 314 7257787",
-      href: "https://wa.me/923147257787",
-    },
-    {
-      icon: <MapPin className="w-4 h-4" />,
-      text: "Lahore, Pakistan",
-      href: "#",
-    },
-  ];
-
-  const socialLinks = [
-    {
-      icon: <Linkedin className="w-5 h-5" />,
-      href: "https://www.linkedin.com/company/codemavensolutions/",
-      label: "LinkedIn",
-    },
-    {
-      icon: <Facebook className="w-5 h-5" />,
-      href: "https://www.facebook.com/codemavensolutions/",
-      label: "Facebook",
-    },
-    {
-      icon: <Instagram className="w-5 h-5" />,
-      href: "https://www.instagram.com/codemavensolutions/",
-      label: "Instagram",
-    },
-  ];
-
+export default function Footer() {
   return (
-    <motion.footer
-      ref={ref}
-      initial={{ opacity: 0, y: 100 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className="bg-black-500 text-white mt-[12px] rounded-[20px]"
-    >
-      <div className="container mx-auto">
-        {/* Main Footer Content */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
-          <div className="flex flex-col gap-10 sm:gap-[50px] sm:flex-row sm:flex-wrap md:gap-[50px] md:flex-nowrap">
-            {/* Company Info */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="space-y-4"
-            >
-              <h3 className="text-xl font-semibold mb-6">
-                Codemaven Solutions
-              </h3>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                Building innovative digital solutions that empower businesses to
-                thrive in the modern world.
-              </p>
-              <div className="flex gap-4 pt-4">
-                {socialLinks.map((social, index) => (
-                  <Link
-                    key={index}
-                    href={social.href}
-                    className="p-2 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
-                    aria-label={social.label}
-                    target="_blank"
-                  >
-                    {social.icon}
-                  </Link>
-                ))}
-              </div>
-            </motion.div>
+    <footer className="bg-black-500 py-[72px] md:py-24 px-[20px] md:px-[60px] text-white">
+      <div className="grid grid-cols-1 md:grid-cols-[2fr_auto_1fr] gap-10 max-w-[1450px] mx-auto">
+        {/* Column 1 - Company Info */}
+        <div className="flex flex-col gap-5">
+          <Image
+            src={"/assets/footer-logo.png"}
+            alt="Codemaven Solutions"
+            width={402}
+            height={39}
+            className="max-w-full h-auto"
+            loading="lazy"
+            quality={75}
+          />
+          <p className="text-white md:max-w-[443px] max-w-full">
+            Codemaven Solutions is a full-service software company specializing
+            in Web, Mobile, and AI-powered application development. We partner
+            with startups and businesses worldwide to craft high-performance,
+            scalable, and user-centric digital products.
+          </p>
+        </div>
 
-            {/* Company Links */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="space-y-4"
+        {/* Column 2 - Links (Narrower) */}
+        <div className="flex flex-col gap-[43px] md:min-w-[100px]">
+          <p className="font-semibold">Links</p>
+          <nav className="flex flex-col gap-5">
+            <Link href={"/"} className="hover:text-gray-300 transition-colors">
+              Home
+            </Link>
+            <Link
+              href={"/about"}
+              className="hover:text-gray-300 transition-colors"
             >
-              <h3 className="text-lg font-semibold mb-6">Company</h3>
-              <ul className="space-y-3">
-                {companyLinks.map((link, index) => (
-                  <li key={index}>
-                    <a
-                      href={link.href}
-                      className="text-gray-400 hover:text-white transition-colors"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
+              About
+            </Link>
+            <Link
+              href={"/contact"}
+              className="hover:text-gray-300 transition-colors"
+            >
+              Contact
+            </Link>
+          </nav>
+        </div>
 
-            {/* Services Links */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="space-y-4"
+        {/* Column 3 - Contact */}
+        <div className="flex flex-col gap-[43px]">
+          <p className="font-semibold">Contact</p>
+          <div className="flex flex-col gap-5">
+            <Link
+              href={"https://wa.me/923147257787"}
+              className="hover:text-gray-300 transition-colors break-all"
             >
-              <h3 className="text-lg font-semibold mb-6">Services</h3>
-              <ul className="space-y-3">
-                {serviceLinks.map((link, index) => (
-                  <li key={index}>
-                    <a
-                      href={link.href}
-                      className="text-gray-400 hover:text-white transition-colors"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-
-            {/* Contact Info */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="space-y-4"
+              +923147257787
+            </Link>
+            <Link
+              href={"mailto:hello@codemavensolutions.com"}
+              className="hover:text-gray-300 transition-colors break-all"
             >
-              <h3 className="text-lg font-semibold mb-6">Contact</h3>
-              <ul className="space-y-3">
-                {contactInfo.map((info, index) => (
-                  <li key={index}>
-                    <Link
-                      href={info.href}
-                      className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors break-words"
-                    >
-                      {info.icon}
-                      <span>{info.text}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
+              hello@codemavensolutions.com
+            </Link>
           </div>
         </div>
       </div>
-    </motion.footer>
+    </footer>
   );
-};
-
-export default Footer;
+}
