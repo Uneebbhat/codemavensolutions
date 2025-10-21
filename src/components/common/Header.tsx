@@ -4,12 +4,12 @@ import Link from "next/link";
 import Button from "./Button";
 import Image from "next/image";
 
-import React, { useState } from "react";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState<boolean>(false);
-  const [servicesOpen, setServicesOpen] = useState<boolean>(false);
+  // const [servicesOpen, setServicesOpen] = useState<boolean>(false);
 
   return (
     <>
