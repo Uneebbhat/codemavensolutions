@@ -224,16 +224,16 @@ export default function Home() {
       {/* Infinite Scrollbar Section*/}
       <section className="relative overflow-hidden bg-black-500 text-white py-8">
         <div className="flex whitespace-nowrap animate-scroll">
-          <h1 className="text-[8vw] md:text-[4vw] font-heading font-bold mx-8 ">
+          <h1 className="text-[10vw] md:text-[5vw] font-heading font-bold mx-8 ">
             Smart Code. Real Impact.
           </h1>
-          <h1 className="text-[8vw] md:text-[4vw] font-heading font-bold mx-8">
+          <h1 className="text-[10vw] md:text-[5vw] font-heading font-bold mx-8">
             Built to Last. Built for You.
           </h1>
-          <h1 className="text-[8vw] md:text-[4vw] font-heading font-bold mx-8">
+          <h1 className="text-[10vw] md:text-[5vw] font-heading font-bold mx-8">
             Smart Code. Real Impact.
           </h1>
-          <h1 className="text-[8vw] md:text-[4vw] font-heading font-bold mx-8">
+          <h1 className="text-[10vw] md:text-[5vw] font-heading font-bold mx-8">
             Built to Last. Built for You.
           </h1>
         </div>
@@ -310,7 +310,10 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {testimonials.map((testimonial) => (
-              <figure className="bg-gradient-to-br from-blue-500 to-[#A4B9FF] p-1 rounded-md flex flex-col justify-between gap-2" key={testimonial.id}>
+              <figure
+                className="bg-gradient-to-br from-blue-500 to-[#A4B9FF] p-1 rounded-md flex flex-col justify-between gap-2"
+                key={testimonial.id}
+              >
                 <blockquote className="bg-white rounded-sm p-3 md:p-6 text-xl h-full">
                   <p>{`"${testimonial.feedback}"`}</p>
                 </blockquote>

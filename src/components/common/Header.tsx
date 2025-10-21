@@ -162,7 +162,7 @@ export default function Header() {
           </Link>
 
           {/* Mobile Services Accordion */}
-          <div>
+          {/* <div>
             <button
               onClick={() => setServicesOpen(!servicesOpen)}
               className="flex items-center justify-between w-full hover:text-blue-500 transition-colors"
@@ -210,11 +210,20 @@ export default function Header() {
                 AI Solutions
               </Link>
             </div>
-          </div>
+          </div> */}
 
-          <Link href="/contact" onClick={() => setMobileOpen(false)}>
-            Contact
+          <Link href="/about" onClick={() => setMobileOpen(false)}>
+            About
           </Link>
+
+          <div className="flex items-center gap-2">
+            <span
+              className="text-[14px] text-muted-foreground cursor-not-allowed flex items-center gap-1"
+              aria-disabled="true"
+            >
+              Services
+            </span>
+          </div>
 
           <div className="mt-6">
             <Button className="w-full">
